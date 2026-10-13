@@ -25,7 +25,7 @@ Select * from employee;
  
  -- delete statement 
  delete from employee where EmpID=30;
- update employee set FirstName='Parth' where EmpID=20; 
+ update employee set FirstName='Nayan' where EmpID=20; 
  Select * from employee;
  select EmpID, FirstName from employee;
  
