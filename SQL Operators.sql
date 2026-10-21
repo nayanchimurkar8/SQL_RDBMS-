@@ -48,3 +48,37 @@ select * from employee order by exprience limit 5;
  select * from employee where Manager_id is null; 
  
  
+/*Aggregate Funcation*/
+/*COUNT,SUM,AVG,MIN,MAX*/
+SELECT COUNT(empid) from employee where dept='Finance';
+SELECT Min(Exprience) from employee;
+SELECT max(Exprience) from employee;
+SELECT Sum(Exprience) from employee;
+SELECT avg(Exprience) as emp_exp from employee;
+select * from employee;
+
+/* GROUP BY Clause 
+set of rows int subgroup depending on column or expression values.
+The GROUP BY Clause is used with aggregate function such as SUM,AVG,MAX,MIN,AND COUNT.*/
+
+-- FIND THE DEPT WISE employee count 
+select dept,count(*)as employee_count from employee group by dept;
+select role,count(*)as employee_count from employee group by role;
+
+  -- Find the Gender wise employee count
+select Gender,count(*)as employee_count from employee group by Gender;
+
+/* HAVING Clause - Each group produced by the GROUP BY clausw is evaluated by the having clause,and if the result is true,
+the row is include in the result set*/
+/*The HAVING*/
+
+select dept,sum(Exprience)as total_expriance from employee group by dept 
+HAVING total_expriance>= 1 and total_expriance<=4; 
+
+/*Fetch department wise employee count using having clause and sort the data*/
+select dept,count(empid) from employee group by dept having count(empid)>2 order by count(empid);
+ select dept,sum(exprience) as total_exprience from employee group by dept having total_exprience>=2 or total_exprience<=4;
+  
+
+
+ 
